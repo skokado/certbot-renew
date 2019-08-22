@@ -21,16 +21,22 @@ $ git clone https://github.com/skokado/certbot-renew
 $ cd certbot-renew
 ```
 
-## お使いの環境に合わせて設定値を変更してください
+## 設定値変更(お使いの環境に合わせて)
 - `main.sh`
 
 ```shell
+## 変数定義
 SLACK_WEBHOOK_URL=https://your.webhook.url # Todo: replace webhook URL
 TARGET_DOMAIN=www.example.com # Todo: replace your domain
 PYTHON_PATH=/usr/bin/python3
 
+## main
 # SSL証明書更新の実行.
 res=`certbot-auto renew --force-renew --webroot -w /var/www/your-document-root 2>&1` # Todo: replace documentroot
+status=$?
+
+# Webサービスの再起動
+# Todo: replace your web service environment(e.g. systemctl reload httpd.service)
 ```
 
 ## cronなどで定期実行
