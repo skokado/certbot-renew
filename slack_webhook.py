@@ -26,12 +26,6 @@ def send_webhook(url, domain, status, text):
     requests.post(url, data = json.dumps(payload))
     return
 
-def generate_webhook_message(status):
-    color = 'good' if status == 0 else 'danger'
-    title = 'Succeeded certbot-renew' if status == 0 else 'An error occured'
-    value = 'Hello.' if status == 0 else 'error'
-    return color, title, value
-
 if __name__ == '__main__':
     # 実行時に引数を受け取る. 足りなければ異常終了
     # 1. 通知先のSlack Webhook URL
