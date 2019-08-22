@@ -40,7 +40,7 @@ if __name__ == '__main__':
     # 4. 直前コマンドの標準出力 or 標準エラー出力
     args = sys.argv
     if len(args) - 1 < 3:
-        print('引数にステータスコードを入力してください.')
+        print('引数の数が不正です.')
         sys.exit(1)
 
     url = args[1]
